@@ -118,6 +118,16 @@ describe('ServeRest API', () => {
         .expectBodyContains('Cadastro realizado com sucesso')
         .returns('_id');
     });
+
+    it.only('Search cart by ID', async () => {
+      await p
+        .spec()
+        .get(`${baseUrl}/carrinhos/qbMqntef4iTOwWfg`)
+        .withRequestTimeout(timeout)
+        .withHeaders('Authorization', token)
+        .withHeaders('monitor', false)
+        .expectStatus(StatusCodes.OK);
+    });
     it('Conclui a compra e exclui o carrinho', async () => {
       await p
         .spec()

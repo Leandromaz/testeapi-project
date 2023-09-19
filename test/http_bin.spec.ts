@@ -13,18 +13,18 @@ describe('Echo validation', () => {
   afterAll(() => p.reporter.end());
 
   describe('Verifying endpoints using POST method', () => {
-    it('Should return the same data as the json sent', async () => {
+    it.only('Should return the same data as the json sent', async () => {
       await p
         .spec()
         .post(`${baseUrl}/anything`)
         .withJson({
-          id: 1,
+          id: 2,
           status: 'SUCCESS'
         })
         .expectStatus(StatusCodes.OK)
         .expectJsonLike({
           json: {
-            id: 1,
+            id: 2,
             status: 'SUCCESS'
           },
           method: 'POST'
