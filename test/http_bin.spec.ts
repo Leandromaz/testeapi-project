@@ -13,7 +13,7 @@ describe('Echo validation', () => {
   afterAll(() => p.reporter.end());
 
   describe('Verifying endpoints using POST method', () => {
-    it.only('Should return the same data as the json sent', async () => {
+    it('Should return the same data as the json sent', async () => {
       await p
         .spec()
         .post(`${baseUrl}/anything`)

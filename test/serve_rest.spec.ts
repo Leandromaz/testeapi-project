@@ -119,7 +119,7 @@ describe('ServeRest API', () => {
         .returns('_id');
     });
 
-    it.only('Search cart by ID', async () => {
+    it('Search cart by ID', async () => {
       await p
         .spec()
         .get(`${baseUrl}/carrinhos/qbMqntef4iTOwWfg`)
@@ -139,6 +139,18 @@ describe('ServeRest API', () => {
         .expectBodyContains('Registro excluído com sucesso');
     });
   });
+
+  /*describe('listar usuarios', () => {
+    it.only('listar usuario por email', async () => {
+      await p
+        .spec()
+        .get(`${baseUrl}/usuarios/${emailUsuario}`)
+        .withRequestTimeout(timeout)
+        .withHeaders('monitor', false)
+        .expectStatus(StatusCodes.OK)
+        .returns('email');
+    });
+  });*/
 
   afterAll(() => p.reporter.end());
 });
