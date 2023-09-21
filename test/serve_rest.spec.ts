@@ -140,17 +140,17 @@ describe('ServeRest API', () => {
     });
   });
 
-  /*describe('listar usuarios', () => {
-    it.only('listar usuario por email', async () => {
+  describe('listar usuarios', () => {
+    it('listar usuario por email', async () => {
       await p
         .spec()
-        .get(`${baseUrl}/usuarios/${emailUsuario}`)
+        .get(`${baseUrl}/usuarios/${idUsuario}`)
         .withRequestTimeout(timeout)
         .withHeaders('monitor', false)
         .expectStatus(StatusCodes.OK)
         .returns('email');
     });
-  });*/
+  });
 
   afterAll(() => p.reporter.end());
 });
